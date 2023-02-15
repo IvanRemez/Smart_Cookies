@@ -1,31 +1,19 @@
 package Solutions.week5;
 
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Q2_Factorial {
 
     public static void main(String[] args) {
 
-        System.out.println(factorialWithFor(6));
-
-        System.out.println(factorialWithStream(6));
+        System.out.println(FindFactorialNumber(6));
 
     }
-    public static int factorialWithFor(int num) {
-
-        int result = 1;
-
-        for (int i = 1; i <= num; i++) {
-            result *= i;
-        }
-
-        return result;
+    private static Long FindFactorialNumber (long n){
+        return LongStream.rangeClosed(1,n).reduce((x, y)->x*y).getAsLong();
     }
 
-    public static int factorialWithStream(int num) {
-        return IntStream.rangeClosed(1, num)
-                .reduce(1, (a, b) -> a * b);
-    }
 }
 /*
 Question-2 Find Factorial
