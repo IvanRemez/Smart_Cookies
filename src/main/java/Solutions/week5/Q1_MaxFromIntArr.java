@@ -15,21 +15,18 @@ public class Q1_MaxFromIntArr {
     public static void main(String[] args) {
 
         int[] array = {6, 8, 3, 5, 1, 9};
+        System.out.println(  ( FindMaxNumber_Sopio(array) )   );
 
-        System.out.println(maxFromArr_Ivan(array));
-
-        System.out.println(maxFromArr_Kicchi(array));
 
     }
-    public static int maxFromArr_Ivan(int[] arr) {
+    public static int FindMaxNumber_Sopio (int [] x){
+        int num = 0;
+        for (int each : x){
+            if (each>num){
+                num=each;
+            }
+        }
 
-        return Arrays.stream(arr).max().getAsInt();
+        return num;
     }
-
-    public static int maxFromArr_Kicchi(int[] arr) {
-
-        return Arrays.stream(arr).max().getAsInt();
-    }
-
-
 }
