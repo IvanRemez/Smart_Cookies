@@ -1,35 +1,29 @@
 package Solutions.week5;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Q3_FirstUniqueChar {
 
     public static void main(String[] args) {
+        FirstNonRepeatedChar("SooPhie");
 
-        uniqueCharWithFor("success");
-
-        System.out.println(uniqueCharWithStream("success"));
 
     }
 
-    public static String uniqueCharWithStream(String str) {
-        return Arrays.stream(str.split(""))
-                .filter(s -> Collections.frequency(List.of(str.split("")), s) == 1)
-                .findFirst()
-                .orElse(" ");
-    }
+    public static void FirstNonRepeatedChar (String input){
+        Map<Character,Long> charCount = input.toLowerCase().chars()
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new,Collectors.counting()));
+        Optional<Character> firstNonRepeat = charCount.entrySet().stream()
+                .filter(e->e.getValue()==1)
+                .map(e-> e.getKey()).findFirst();
 
-    public static void uniqueCharWithFor(String str) {
+        if (firstNonRepeat.isPresent()) {
+            System.out.println("First Non Repeated Character " + firstNonRepeat.get());
+        };
 
-        for (int i = 0; i < str.length(); i++) {
-
-            if (str.indexOf(str.charAt(i), str.indexOf(str.charAt(i)) + 1) == -1) {
-                System.out.println(str.charAt(i));
-                break;
-            }
-        }
     }
 }
 /*
