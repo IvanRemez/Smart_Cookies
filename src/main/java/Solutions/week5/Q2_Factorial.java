@@ -26,6 +26,11 @@ public class Q2_Factorial {
         return IntStream.rangeClosed(1, num)
                 .reduce(1, (a, b) -> a * b);
     }
+
+    //for test
+    public static int factorial_Kicchi(int num) {
+        return 0;
+    }
 }
 /*
 Question-2 Find Factorial
