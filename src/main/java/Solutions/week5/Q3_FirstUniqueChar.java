@@ -31,6 +31,13 @@ public class Q3_FirstUniqueChar {
             }
         }
     }
+
+    public static String uniqueCharWithStream_Kicchi(String str) {
+        return Arrays.stream(str.split(""))
+            .filter(s -> Collections.frequency(List.of(str.split("")), s) == 1)
+            .findFirst()
+            .orElse(" ");
+    }
 }
 /*
 Question-3 First Unique Character
