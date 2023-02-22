@@ -23,27 +23,13 @@ Please, test your solution here : https://leetcode.com/problems/valid-anagram/
 
 public class Q1_ValidAnagram {
 
+
     public static void main(String[] args) {
 
-        isPalindrome_Mahir("A man, a plan, a canal: Panama");
-        System.out.println(isPalindrome_Mahir("A man, a plan, a canal: Panama"));
 
     }
 
-    public static boolean isPalindrome_Mahir(String s) {
-        s = s.replaceAll("[^a-zA-Z0-9]","");
-        s=s.toLowerCase();
-        int lastElement = s.length() - 1; int firstElement = 0;
-        while(lastElement>firstElement) {
-            if (s.charAt(firstElement)==s.charAt(lastElement)){
-                lastElement--;
-                firstElement++;
-
-            }else{
-                return false;
-            }
-        }
-        return true;
-    }
+    // *ADD YOUR SOLUTIONS HERE*
 
 }
+
