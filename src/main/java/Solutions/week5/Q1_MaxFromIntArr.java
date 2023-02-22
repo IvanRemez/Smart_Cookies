@@ -32,4 +32,7 @@ public class Q1_MaxFromIntArr {
     }
 
 
+   public static int maxFromArr_Sef(int[] arr){   //practicing commit&push with Ivan
+       return Arrays.stream(arr).max().getAsInt();
+   }
 }
