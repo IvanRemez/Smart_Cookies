@@ -2,6 +2,11 @@ package Solutions.week5;
 
 import java.util.Arrays;
 
+/*
+How to convert a positive int to an array of digits.
+
+Input: 490 Output: [4, 9, 0] (as int Array)
+ */
 public class Q5_ArrayOfDigits {
 
     public static void main(String[] args) {
@@ -22,8 +27,3 @@ public class Q5_ArrayOfDigits {
         return intArray;
     }
 }
-/*
-How to convert a positive int to an array of digits.
-
-Input: 490 Output: [4, 9, 0] (as int Array)
- */

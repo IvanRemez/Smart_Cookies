@@ -4,11 +4,21 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/*
+Question-3 First Unique Character
+
+Write a function that returns the first non-repeated character from a string.
+If all characters are repeated return a space character.
+
+EXAMPLE:
+Input: "success" output: u
+Explanation: u and e are non-repeated, u is the first non-repeated character
+ */
 public class Q3_FirstUniqueChar {
 
     public static void main(String[] args) {
 
-        uniqueCharWithFor("success");
+        uniqueCharWithFor("sucacesas");
 
         System.out.println(uniqueCharWithStream("success"));
 
@@ -32,13 +42,3 @@ public class Q3_FirstUniqueChar {
         }
     }
 }
-/*
-Question-3 First Unique Character
-
-Write a function that returns the first non-repeated character from a string.
-If all characters are repeated return a space character.
-
-EXAMPLE:
-Input: "success" output: u
-Explanation: u and e are non-repeated, u is the first non-repeated character
- */
