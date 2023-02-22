@@ -25,6 +25,7 @@ import java.util.Arrays;
 
 public class Q1_ValidAnagram {
 
+
     public static void main(String[] args) {
 
         isAnagram_Mahir("anagram","nagaram");
@@ -44,3 +45,4 @@ public class Q1_ValidAnagram {
     }
 
 }
+
