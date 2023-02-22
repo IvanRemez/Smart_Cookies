@@ -21,13 +21,26 @@ Output: false
 Please, test your solution here : https://leetcode.com/problems/valid-anagram/
  */
 
+import java.util.Arrays;
+
 public class Q1_ValidAnagram {
 
     public static void main(String[] args) {
 
+        isAnagram_Mahir("anagram","nagaram");
+        System.out.println(isAnagram_Mahir("anagram","nagaram"));
 
     }
 
-    // *ADD YOUR SOLUTIONS HERE*
+    public static boolean isAnagram_Mahir(String s,String t){
+        String[]charactherForS=s.toLowerCase().split("");
+        String[]charactherForT=t.toLowerCase().split("");
+        Arrays.sort(charactherForS);
+        Arrays.sort(charactherForT);
+        if (Arrays.equals(charactherForS,charactherForT)){
+            return true;
+        }
+        return false;
+    }
 
 }
