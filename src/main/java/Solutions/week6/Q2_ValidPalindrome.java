@@ -97,7 +97,7 @@ public class Q2_ValidPalindrome {
         if (newStr.equalsIgnoreCase(reverse)){
             return true;
         }else {
-            return false;
+            return false; //returns
         }
 
     }
