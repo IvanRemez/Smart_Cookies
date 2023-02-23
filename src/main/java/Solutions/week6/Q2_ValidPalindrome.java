@@ -26,7 +26,6 @@ two-pointer approach entail:
 ▪ Two pointers, each starting from the beginning and the end until they
 both meet.
 ▪ One pointer moving at a slow pace, while the other pointer moves at
-Output: True Output: True Output: False
 twice the speed.
  */
 
@@ -34,22 +33,44 @@ public class Q2_ValidPalindrome {
 
     public static void main(String[] args) {
 
-        isPalindrome_Mahir("A man, a plan, a canal: Panama");
         System.out.println(isPalindrome_Mahir("A man, a plan, a canal: Panama"));
 
+        System.out.println(isPalindrome_Emre("A man, a plan, a canal: Panama"));
+
+        System.out.println(isPalindrome_Ivan("A man, a plan, a canal: Panama"));
 
     }
 
+    public static boolean isPalindrome_Ivan(String str) {
+
+        str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
+
+        int first = 0;
+        int last = str.length() - 1;
+
+        while (last > first) {
+
+            if (str.charAt(first) == str.charAt(last)) {
+                last--;
+                first++;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static boolean isPalindrome_Mahir(String s) {
-        s = s.replaceAll("[^a-zA-Z0-9]","");
-        s=s.toLowerCase();
-        int lastElement = s.length() - 1; int firstElement = 0;
-        while(lastElement>firstElement) {
-            if (s.charAt(firstElement)==s.charAt(lastElement)){
+        s = s.replaceAll("[^a-zA-Z0-9]", "");
+        s = s.toLowerCase();
+        int lastElement = s.length() - 1;
+        int firstElement = 0;
+        while (lastElement > firstElement) {
+            if (s.charAt(firstElement) == s.charAt(lastElement)) {
                 lastElement--;
                 firstElement++;
 
-            }else{
+            } else {
                 return false;
             }
         }
@@ -60,9 +81,9 @@ public class Q2_ValidPalindrome {
 
         str = str.toLowerCase();
 
-        int i = 0, j = str.length()-1;
+        int i = 0, j = str.length() - 1;
 
-        while (i<j) {
+        while (i < j) {
 
             if (!Character.isLetterOrDigit(str.charAt(i))) {
                 i++;

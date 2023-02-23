@@ -29,19 +29,32 @@ public class Q1_ValidAnagram {
 
     public static void main(String[] args) {
 
-        isAnagram_Mahir("anagram","nagaram");
-        System.out.println(isAnagram_Mahir("anagram","nagaram"));
+        isAnagram_Mahir("anagram", "nagaram");
+        System.out.println(isAnagram_Mahir("anagram", "nagaram"));
 
         System.out.println(isAnagram_Emre("anagram", "nagaram"));
 
+        System.out.println(isAnagram_Ivan("anagram", "nagaram"));
+
     }
 
-    public static boolean isAnagram_Mahir(String s,String t){
-        String[]charactherForS=s.toLowerCase().split("");
-        String[]charactherForT=t.toLowerCase().split("");
+    public static boolean isAnagram_Ivan(String s, String t) {
+
+        char[] sChar = s.toLowerCase().toCharArray();
+        char[] tChar = t.toLowerCase().toCharArray();
+
+        Arrays.sort(sChar);
+        Arrays.sort(tChar);
+
+        return Arrays.equals(sChar, tChar);
+    }
+
+    public static boolean isAnagram_Mahir(String s, String t) {
+        String[] charactherForS = s.toLowerCase().split("");
+        String[] charactherForT = t.toLowerCase().split("");
         Arrays.sort(charactherForS);
         Arrays.sort(charactherForT);
-        if (Arrays.equals(charactherForS,charactherForT)){
+        if (Arrays.equals(charactherForS, charactherForT)) {
             return true;
         }
         return false;
