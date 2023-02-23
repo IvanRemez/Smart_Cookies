@@ -33,10 +33,57 @@ twice the speed.
 public class Q2_ValidPalindrome {
 
     public static void main(String[] args) {
+        System.out.println(isPalindrome_Zehra("Do geese see God")); // True
+        System.out.println(isPalindrome_Zehra("Was it a car or a cat I saw")); // True
+        System.out.println(isPalindrome_Zehra("A brown fox jumping over")); // False
+        System.out.println(isPalindrome_Zehra("A man, a plan, a canal: Panama")); // True
+        System.out.println(isPalindrome_Zehra("race a car")); // False
+        System.out.println(isPalindrome_Zehra2("Do geese see God")); // True
+        System.out.println(isPalindrome_Zehra2("Was it a car or a cat I saw")); // True
+        System.out.println(isPalindrome_Zehra2("A brown fox jumping over")); // False
+        System.out.println(isPalindrome_Zehra2("A man, a plan, a canal: Panama")); // True
+        System.out.println(isPalindrome_Zehra2("race a car")); // False
 
 
     }
 
     // *ADD YOUR SOLUTIONS HERE*
+    public static boolean isPalindrome_Zehra(String str) {
 
+        String s = str.replaceAll(",", " ");
+        s = s.replaceAll(":", " ");
+        s = s.replaceAll(" ", "");
+        s = s.toLowerCase();
+        char[] arr = s.toCharArray();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != arr[arr.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean isPalindrome_Zehra2(String str) {
+        String s = str.replaceAll(",", " ");
+        s = s.replaceAll(":", " ");
+        s = s.replaceAll(" ", "");
+        s = s.toLowerCase();
+        int r = 0;
+        int l = s.length() - 1;
+
+        while (r < l) {
+
+            if (!(s.charAt(r) >= 'a' && s.charAt(l) <='z')) {
+                r++;
+            } else if ((s.charAt(l) <= 'a' && s.charAt(l) >= 'z')) {
+                l--;
+            } else if(s.charAt(r) == s.charAt(l)){
+                r++;
+                l--;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
 }
