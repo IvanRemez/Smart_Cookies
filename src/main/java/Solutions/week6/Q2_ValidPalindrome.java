@@ -26,30 +26,64 @@ two-pointer approach entail:
 ▪ Two pointers, each starting from the beginning and the end until they
 both meet.
 ▪ One pointer moving at a slow pace, while the other pointer moves at
-Output: True Output: True Output: False
 twice the speed.
  */
 
 public class Q2_ValidPalindrome {
 
     public static void main(String[] args) {
+    
+        System.out.println(isPalindrome_Zehra("Do geese see God")); // True
+        System.out.println(isPalindrome_Zehra("Was it a car or a cat I saw")); // True
+        System.out.println(isPalindrome_Zehra("A brown fox jumping over")); // False
+        System.out.println(isPalindrome_Zehra("A man, a plan, a canal: Panama")); // True
+        System.out.println(isPalindrome_Zehra("race a car")); // False
+        System.out.println(isPalindrome_Zehra2("Do geese see God")); // True
+        System.out.println(isPalindrome_Zehra2("Was it a car or a cat I saw")); // True
+        System.out.println(isPalindrome_Zehra2("A brown fox jumping over")); // False
+        System.out.println(isPalindrome_Zehra2("A man, a plan, a canal: Panama")); // True
+        System.out.println(isPalindrome_Zehra2("race a car")); // False
 
-        isPalindrome_Mahir("A man, a plan, a canal: Panama");
         System.out.println(isPalindrome_Mahir("A man, a plan, a canal: Panama"));
 
+        System.out.println(isPalindrome_Emre("A man, a plan, a canal: Panama"));
+
+        System.out.println(isPalindrome_Ivan("A man, a plan, a canal: Panama"));
+
+        System.out.println(isPalindrome_Oleksii("A man, a plan, a canal: Panama"));
 
     }
 
+    public static boolean isPalindrome_Ivan(String str) {
+
+        str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
+
+        int first = 0;
+        int last = str.length() - 1;
+
+        while (last > first) {
+
+            if (str.charAt(first) == str.charAt(last)) {
+                last--;
+                first++;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static boolean isPalindrome_Mahir(String s) {
-        s = s.replaceAll("[^a-zA-Z0-9]","");
-        s=s.toLowerCase();
-        int lastElement = s.length() - 1; int firstElement = 0;
-        while(lastElement>firstElement) {
-            if (s.charAt(firstElement)==s.charAt(lastElement)){
+        s = s.replaceAll("[^a-zA-Z0-9]", "");
+        s = s.toLowerCase();
+        int lastElement = s.length() - 1;
+        int firstElement = 0;
+        while (lastElement > firstElement) {
+            if (s.charAt(firstElement) == s.charAt(lastElement)) {
                 lastElement--;
                 firstElement++;
 
-            }else{
+            } else {
                 return false;
             }
         }
@@ -60,9 +94,9 @@ public class Q2_ValidPalindrome {
 
         str = str.toLowerCase();
 
-        int i = 0, j = str.length()-1;
+        int i = 0, j = str.length() - 1;
 
-        while (i<j) {
+        while (i < j) {
 
             if (!Character.isLetterOrDigit(str.charAt(i))) {
                 i++;
@@ -81,27 +115,59 @@ public class Q2_ValidPalindrome {
         return true;
     }
 
-    public static Boolean ValidPalindrome_Sopo (String str){
+    static boolean isPalindrome_Oleksii(String str) {
 
-        String reverse = "";
+        str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
 
-        // Remove all non-alphanumeric characters from the string
-        String newStr = str.replaceAll("[^a-zA-Z0-9]", "");
-
-        // Reverse the alphanumeric string
-        for (int i = newStr.length()-1; i >=0;  i--) {
-            reverse+=newStr.charAt(i);
+        var firstPointer = 0;
+        var lastPointer = str.length()-1;
+        while(firstPointer<lastPointer){
+            if(str.charAt(firstPointer++)!=str.charAt(lastPointer--)){
+                return false;
+            }
         }
-
-        // Check if the reversed string is equal to the original string (ignoring case)
-        if (newStr.equalsIgnoreCase(reverse)){
-            return true;
-        }else {
-            return false; //returns
-        }
-
+        return true;
     }
 
+    public static boolean isPalindrome_Zehra(String str) {
+
+        String s = str.replaceAll(",", " ");
+        s = s.replaceAll(":", " ");
+        s = s.replaceAll(" ", "");
+        s = s.toLowerCase();
+        char[] arr = s.toCharArray();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != arr[arr.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean isPalindrome_Zehra2(String str) {
+        String s = str.replaceAll(",", " ");
+        s = s.replaceAll(":", " ");
+        s = s.replaceAll(" ", "");
+        s = s.toLowerCase();
+        int r = 0;
+        int l = s.length() - 1;
+
+        while (r < l) {
+
+            if (!(s.charAt(r) >= 'a' && s.charAt(l) <='z')) {
+                r++;
+            } else if ((s.charAt(l) <= 'a' && s.charAt(l) >= 'z')) {
+                l--;
+            } else if(s.charAt(r) == s.charAt(l)){
+                r++;
+                l--;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 
