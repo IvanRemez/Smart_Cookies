@@ -22,6 +22,7 @@ Please, test your solution here : https://leetcode.com/problems/valid-anagram/
  */
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Q1_ValidAnagram {
 
@@ -43,6 +44,17 @@ public class Q1_ValidAnagram {
         if (Arrays.equals(charactherForS,charactherForT)){
             return true;
         }
+        return false;
+    }
+
+
+    static boolean isAnagram_Oleksii( String str1, String str2 ){
+
+        HashSet map1 = new HashSet( Arrays.asList(str1.toLowerCase().split("")));
+        HashSet map2 = new HashSet( Arrays.asList(str2.toLowerCase().split("")));
+
+        if(map1.equals(map2))
+            return true;
         return false;
     }
 
