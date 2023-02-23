@@ -32,6 +32,8 @@ public class Q1_ValidAnagram {
         isAnagram_Mahir("anagram","nagaram");
         System.out.println(isAnagram_Mahir("anagram","nagaram"));
 
+        System.out.println(isAnagram_Emre("anagram", "nagaram"));
+
     }
 
     public static boolean isAnagram_Mahir(String s,String t){
@@ -45,6 +47,7 @@ public class Q1_ValidAnagram {
         return false;
     }
 
+
     static boolean isAnagram_Oleksii( String str1, String str2 ){
 
         HashSet map1 = new HashSet( Arrays.asList(str1.toLowerCase().split("")));
@@ -54,5 +57,20 @@ public class Q1_ValidAnagram {
             return true;
         return false;
     }
+
+    public static boolean isAnagram_Emre(String s, String t) {
+
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        if (Arrays.equals(arr1,arr2)) {
+            return true;
+        }
+        return false;
+    }
+
 }
 
