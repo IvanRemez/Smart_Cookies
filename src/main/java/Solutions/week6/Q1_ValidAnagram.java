@@ -22,6 +22,8 @@ Please, test your solution here : https://leetcode.com/problems/valid-anagram/
  */
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.HashSet;
 
 public class Q1_ValidAnagram {
@@ -29,7 +31,15 @@ public class Q1_ValidAnagram {
 
     public static void main(String[] args) {
 
-        isAnagram_Mahir("anagram", "nagaram");
+        System.out.println(isAnagram_Zehra("anagram", "nagaram")); // true
+        System.out.println(isAnagram_Zehra("rat", "car")); // false
+        System.out.println(isAnagram_Zehra("Buckethead", "DeathCubeK")); // true
+        System.out.println(isAnagram_Zehra("", " ")); // false
+        System.out.println(isAnagram_Zehra2("anagram", "nagaram")); // true
+        System.out.println(isAnagram_Zehra2("rat", "car")); // false
+        System.out.println(isAnagram_Zehra2("Buckethead", "DeathCubeK")); // true
+        System.out.println(isAnagram_Zehra2("", " ")); // false
+
         System.out.println(isAnagram_Mahir("anagram", "nagaram"));
 
         System.out.println(isAnagram_Emre("anagram", "nagaram"));
@@ -60,6 +70,30 @@ public class Q1_ValidAnagram {
         return false;
     }
 
+    public static boolean isAnagram_Zehra(String s, String t) {
+        s = s.toLowerCase();
+        t = t.toLowerCase();
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        if (Arrays.equals(sArray, tArray)) {
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean isAnagram_Zehra2(String test, String original) {
+        return Stream.of(test.toLowerCase().split(""))
+                .sorted()
+                .collect(Collectors.joining())
+                .equals(Stream.of(original.toLowerCase().split(""))
+                        .sorted()
+                        .collect(Collectors.joining()));
 
     static boolean isAnagram_Oleksii( String str1, String str2 ){
 
