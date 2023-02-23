@@ -46,6 +46,8 @@ public class Q1_ValidAnagram {
 
         System.out.println(isAnagram_Ivan("anagram", "nagaram"));
 
+        System.out.println(isAnagram_Oleksii("anagram", "nagaram"));
+
     }
 
     public static boolean isAnagram_Ivan(String s, String t) {
@@ -86,7 +88,7 @@ public class Q1_ValidAnagram {
         }
         return false;
     }
-    
+
     public static boolean isAnagram_Zehra2(String test, String original) {
         return Stream.of(test.toLowerCase().split(""))
                 .sorted()
@@ -94,13 +96,14 @@ public class Q1_ValidAnagram {
                 .equals(Stream.of(original.toLowerCase().split(""))
                         .sorted()
                         .collect(Collectors.joining()));
+    }
 
-    static boolean isAnagram_Oleksii( String str1, String str2 ){
+    public static boolean isAnagram_Oleksii(String str1, String str2) {
 
-        HashSet map1 = new HashSet( Arrays.asList(str1.toLowerCase().split("")));
-        HashSet map2 = new HashSet( Arrays.asList(str2.toLowerCase().split("")));
+        HashSet map1 = new HashSet(Arrays.asList(str1.toLowerCase().split("")));
+        HashSet map2 = new HashSet(Arrays.asList(str2.toLowerCase().split("")));
 
-        if(map1.equals(map2))
+        if (map1.equals(map2))
             return true;
         return false;
     }
@@ -113,11 +116,11 @@ public class Q1_ValidAnagram {
         Arrays.sort(arr1);
         Arrays.sort(arr2);
 
-        if (Arrays.equals(arr1,arr2)) {
+        if (Arrays.equals(arr1, arr2)) {
             return true;
         }
         return false;
     }
-
 }
+
 

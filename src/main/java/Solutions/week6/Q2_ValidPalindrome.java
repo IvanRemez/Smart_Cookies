@@ -50,6 +50,8 @@ public class Q2_ValidPalindrome {
 
         System.out.println(isPalindrome_Ivan("A man, a plan, a canal: Panama"));
 
+        System.out.println(isPalindrome_Oleksii("A man, a plan, a canal: Panama"));
+
     }
 
     public static boolean isPalindrome_Ivan(String str) {
@@ -113,7 +115,7 @@ public class Q2_ValidPalindrome {
         return true;
     }
 
-    static boolean isAnagram_Oleksii(String str) {
+    static boolean isPalindrome_Oleksii(String str) {
 
         str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
 
