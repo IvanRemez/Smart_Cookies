@@ -81,6 +81,21 @@ public class Q2_ValidPalindrome {
         return true;
     }
 
+    static boolean isAnagram_Oleksii(String str) {
+
+        str = str.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
+
+        var firstPointer = 0;
+        var lastPointer = str.length()-1;
+        while(firstPointer<lastPointer){
+            if(str.charAt(firstPointer++)!=str.charAt(lastPointer--)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 }
 
 
