@@ -24,10 +24,13 @@ Please, test your solution here : https://leetcode.com/problems/valid-anagram/
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.HashSet;
 
 public class Q1_ValidAnagram {
 
+
     public static void main(String[] args) {
+
         System.out.println(isAnagram_Zehra("anagram", "nagaram")); // true
         System.out.println(isAnagram_Zehra("rat", "car")); // false
         System.out.println(isAnagram_Zehra("Buckethead", "DeathCubeK")); // true
@@ -37,9 +40,36 @@ public class Q1_ValidAnagram {
         System.out.println(isAnagram_Zehra2("Buckethead", "DeathCubeK")); // true
         System.out.println(isAnagram_Zehra2("", " ")); // false
 
+        System.out.println(isAnagram_Mahir("anagram", "nagaram"));
+
+        System.out.println(isAnagram_Emre("anagram", "nagaram"));
+
+        System.out.println(isAnagram_Ivan("anagram", "nagaram"));
+
     }
 
-    // *ADD YOUR SOLUTIONS HERE*
+    public static boolean isAnagram_Ivan(String s, String t) {
+
+        char[] sChar = s.toLowerCase().toCharArray();
+        char[] tChar = t.toLowerCase().toCharArray();
+
+        Arrays.sort(sChar);
+        Arrays.sort(tChar);
+
+        return Arrays.equals(sChar, tChar);
+    }
+
+    public static boolean isAnagram_Mahir(String s, String t) {
+        String[] charactherForS = s.toLowerCase().split("");
+        String[] charactherForT = t.toLowerCase().split("");
+        Arrays.sort(charactherForS);
+        Arrays.sort(charactherForT);
+        if (Arrays.equals(charactherForS, charactherForT)) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean isAnagram_Zehra(String s, String t) {
         s = s.toLowerCase();
         t = t.toLowerCase();
@@ -56,6 +86,7 @@ public class Q1_ValidAnagram {
         }
         return false;
     }
+    
     public static boolean isAnagram_Zehra2(String test, String original) {
         return Stream.of(test.toLowerCase().split(""))
                 .sorted()
@@ -63,6 +94,30 @@ public class Q1_ValidAnagram {
                 .equals(Stream.of(original.toLowerCase().split(""))
                         .sorted()
                         .collect(Collectors.joining()));
+
+    static boolean isAnagram_Oleksii( String str1, String str2 ){
+
+        HashSet map1 = new HashSet( Arrays.asList(str1.toLowerCase().split("")));
+        HashSet map2 = new HashSet( Arrays.asList(str2.toLowerCase().split("")));
+
+        if(map1.equals(map2))
+            return true;
+        return false;
+    }
+
+    public static boolean isAnagram_Emre(String s, String t) {
+
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        if (Arrays.equals(arr1,arr2)) {
+            return true;
+        }
+        return false;
     }
 
 }
+
