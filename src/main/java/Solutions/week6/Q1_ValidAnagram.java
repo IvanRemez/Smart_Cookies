@@ -48,7 +48,25 @@ public class Q1_ValidAnagram {
 
         System.out.println(isAnagram_Oleksii("anagram", "nagaram"));
 
+        System.out.println(validAnagram_Sopio("anagra", "nagaram"));
+        System.out.println(validAnagram_Sopio("Apple", "lePpA"));
+
     }
+
+    public static Boolean validAnagram_Sopio (String str, String str2){
+
+        String [] newStr= str.toLowerCase().split("");
+        String [] newStr2 = str2.toLowerCase().split("");
+        Arrays.sort(newStr);
+        Arrays.sort(newStr2);
+        if (Arrays.equals(newStr,newStr2)){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
 
     public static boolean isAnagram_Ivan(String s, String t) {
 
