@@ -27,10 +27,30 @@ Follow up: Could you implement a solution using only O(1) extra space complexity
 Please, test your solution here: https://leetcode.com/problems/missing-number/
  */
 
+import java.util.Arrays;
+
 public class Q1_MissingNum {
 
     public static void main(String[] args) {
 
+        //int[] nums = {3, 0, 1};
+        int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+
+        //int[] nums = {0,1};
+
+        System.out.println(Oleksii_MissingNum(nums));
+
+    }
+
+    static int Oleksii_MissingNum(int[] arr) {
+
+        int k = ((arr.length ) * (arr.length+1)) / 2;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            k -= arr[i];
+        }
+        return k;
 
     }
 }
