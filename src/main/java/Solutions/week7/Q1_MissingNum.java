@@ -30,7 +30,31 @@ Please, test your solution here: https://leetcode.com/problems/missing-number/
 public class Q1_MissingNum {
 
     public static void main(String[] args) {
+        int[] arr = {3, 0, 1};
+        int[] arr2 = {0, 1};
+        int[] arr3 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+        System.out.println(missingNumber_Zehra(arr)); // 2
+        System.out.println(missingNumber_Zehra(arr2)); // 2
+        System.out.println(missingNumber_Zehra(arr3)); // 8
 
+    }
 
+    public static int missingNumber_Zehra(int[] array) {
+
+        int result = 0;
+
+        int n = array.length;
+
+        for (int each : array) {
+            result += each;
+        }
+
+        int sumOfArray = n * (n + 1) / 2;
+
+        if (result == sumOfArray) {
+            return 0;
+        } else {
+            return sumOfArray - result;
+        }
     }
 }
