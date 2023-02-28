@@ -17,10 +17,33 @@ Explanation: Because nums[1] + nums[3] => 3 + 5 = 8, we return [3, 5].
 Optional additional task: Try to return original indices of the pair numbers.
  */
 
+import java.util.Arrays;
+
 public class Q2_TwoSum {
 
     public static void main(String[] args) {
 
+        int arr[] = {16, 3, 11, 5, 15};
+        System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
+    }
 
+    public static int[] sum_Zehra(int[] arr, int target) {
+
+        Arrays.sort(arr);
+
+        int rightPointer = 0;
+        int leftPointer = arr.length - 1;
+
+        while (rightPointer < leftPointer) {
+
+            if (arr[rightPointer] + arr[leftPointer] < target) {
+                rightPointer++;
+            } else if (arr[rightPointer] + arr[leftPointer] > target) {
+                leftPointer--;
+            } else {
+                return new int[]{arr[rightPointer], arr[leftPointer]};
+            }
+        }
+        return new int[]{-1, -1};
     }
 }
