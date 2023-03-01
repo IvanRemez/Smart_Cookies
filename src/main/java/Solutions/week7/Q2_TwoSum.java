@@ -22,6 +22,11 @@ import java.util.Arrays;
 public class Q2_TwoSum {
 
     public static void main(String[] args) {
+    
+        int[] arr = {16, 3, 11, 5, 15};
+        int target = 8;
+
+        System.out.println(Arrays.toString(Oleksii_TwoSum(arr, target)));
 
         int arr[] = {16, 3, 11, 5, 15};
         System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
@@ -46,4 +51,27 @@ public class Q2_TwoSum {
         }
         return new int[]{-1, -1};
     }
+
+    static int[] Oleksii_TwoSum(int[] arr, int target) {
+
+        int leftP = 0;
+        int rightP = arr.length - 1;
+
+
+        arr = Arrays.stream(arr).sorted().toArray();
+        while (leftP < rightP) {
+            if (arr[leftP] + arr[rightP] < target) {
+                leftP++;
+                continue;
+            } else if (arr[leftP] + arr[rightP] > target) {
+                rightP--;
+                continue;
+            } else if (arr[leftP] + arr[rightP] == target) {
+                return new int[]{arr[leftP], arr[rightP]};
+            }
+        }
+
+        return new int[]{-1, -1};
+    }
+
 }
