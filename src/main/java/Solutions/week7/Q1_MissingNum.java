@@ -47,6 +47,27 @@ public class Q1_MissingNum {
         System.out.println(missingNumber_Zehra(arr2)); // 2
         System.out.println(missingNumber_Zehra(arr3)); // 8
 
+
+        int [] num = {0, 1};
+        int [] num1 = {3, 0, 1};
+        int [] num2 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+
+        System.out.println(MissingNumber_Sopo(num));
+        System.out.println(MissingNumber_Sopo(num1));
+        System.out.println(MissingNumber_Sopo(num2));
+
+    }
+
+    public static int MissingNumber_Sopo (int [] number){
+        int n = number.length;
+        int sum = n* (n+1)/2;
+
+        for (int i = 0; i < n; i++) {
+            sum -=number[i];
+
+        }
+
+        return sum;
     }
 
     static int Oleksii_MissingNum(int[] arr) {
