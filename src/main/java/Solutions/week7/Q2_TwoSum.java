@@ -23,18 +23,38 @@ import java.util.Arrays;
 public class Q2_TwoSum {
 
     public static void main(String[] args) {
-
+    
         int[] arr = {16, 3, 11, 5, 15};
         int target = 8;
 
         System.out.println(Arrays.toString(Oleksii_TwoSum(arr, target)));
 
-
-
-
         Integer[] nums = {5, 2, 3, 4, 1};
 
         System.out.println(Arrays.toString(twoSum_Emre(nums,8)));
+
+        int arr[] = {16, 3, 11, 5, 15};
+        System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
+    }
+
+    public static int[] sum_Zehra(int[] arr, int target) {
+
+        Arrays.sort(arr);
+
+        int rightPointer = 0;
+        int leftPointer = arr.length - 1;
+
+        while (rightPointer < leftPointer) {
+
+            if (arr[rightPointer] + arr[leftPointer] < target) {
+                rightPointer++;
+            } else if (arr[rightPointer] + arr[leftPointer] > target) {
+                leftPointer--;
+            } else {
+                return new int[]{arr[rightPointer], arr[leftPointer]};
+            }
+        }
+        return new int[]{-1, -1};
 
     }
 
