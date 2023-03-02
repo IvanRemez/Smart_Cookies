@@ -60,6 +60,8 @@ public class Q1_MissingNum {
         int size = nums1.length;
         System.out.println(missingNum_Ivan(nums1, size));
 
+        int[] array_Malik ={1,3,5,2,0};//n=5 [0,5]
+        System.out.println(isMissing_Malik(array_Malik));
     }
 
     static int Oleksii_MissingNum(int[] arr) {
@@ -132,4 +134,19 @@ public class Q1_MissingNum {
             sum -= nums[i];
         return sum;
     }
-}
+    public static int isMissing_Malik(int[] arr){
+
+        int ar=0;
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+
+            if(ar==arr[i]){
+                ar++;
+            } else{
+                break;
+            }
+
+
+        }
+        return ar;
+}}
