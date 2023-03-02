@@ -21,9 +21,7 @@ output :
  */
 
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.HashMap;
+import java.util.*;
 import java.util.Map;
 
 public class EXTRA {
@@ -31,6 +29,9 @@ public class EXTRA {
     public static void main(String[] args) {
 
         int[] array = {1,2,2,2,2,2,2,2,2,2,2,2};
+        int[] arr1 = {1, 2, 3, 4, 3, 2, 1, 3, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2};
+        countNumber_Mahir(arr1);
+        System.out.println("-----------------------------");
 
         System.out.println(extra_Emre(array));
 
@@ -96,6 +97,27 @@ public class EXTRA {
             }
         }
         return result;
+    }
+
+    public static void countNumber_Mahir(int[] array) {
+
+        String[] arr = {"one","two","three","four","five","six","seven","eight","nine","ten","more than ten"};
+        Map<Integer, String> listMap = new TreeMap<>();
+        Arrays.sort(array);
+        int count=1;
+        for (int i = 0,j=1; i < array.length; i++,j++) {
+            if (j<array.length&&array[i]==array[j]){
+                count++;
+            }else{
+                listMap.put(array[i], arr[count - 1]);
+                count=1;
+            }
+
+        }
+        for (Map.Entry<Integer, String> integerStringEntry : listMap.entrySet()) {
+            System.out.println(integerStringEntry.toString().replace("="," is ")+" times");
+        }
+
     }
 
 }
