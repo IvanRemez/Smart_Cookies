@@ -56,6 +56,10 @@ public class Q1_MissingNum {
         int[] array_Sefika ={1,3,5,2,0}; //n=5 , [0,5]
         System.out.println(Q1_MissingNum.missingNumber_Sefika(array_Sefika)); //4
 
+        int[] nums1 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+        int size = nums1.length;
+        System.out.println(missingNum_Ivan(nums1, size));
+
     }
 
     static int Oleksii_MissingNum(int[] arr) {
@@ -119,5 +123,13 @@ public class Q1_MissingNum {
         result = sum - sumOfArray;
         return result;
 
+    }
+
+    public static int missingNum_Ivan(int[] nums, int n)
+    {
+        int sum = (n * (n + 1)) / 2;
+        for (int i = 0; i < n; i++)
+            sum -= nums[i];
+        return sum;
     }
 }
