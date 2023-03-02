@@ -47,6 +47,10 @@ public class Q1_MissingNum {
         System.out.println(missingNumber_Zehra(arr2)); // 2
         System.out.println(missingNumber_Zehra(arr3)); // 8
 
+        System.out.println("-----------------------------------------------------");
+        int[] array_Sefika ={1,3,5,2,0}; //n=5 , [0,5]
+        System.out.println(Q1_MissingNum.missingNumber_Sefika(array_Sefika)); //4
+
     }
 
     static int Oleksii_MissingNum(int[] arr) {
@@ -79,4 +83,23 @@ public class Q1_MissingNum {
             return sumOfArray - result;
         }
     }
+
+
+    public static int missingNumber_Sefika(int[] array_Sefika){
+        int result= 0;
+        int n = array_Sefika.length;
+        int sum = ( n * (n+1)) / 2;
+        int sumOfArray = Arrays.stream(array_Sefika).sum();
+        result = sum - sumOfArray;
+        return result;
+
+    }
+
+
+
+
+
+
+
 }
+
