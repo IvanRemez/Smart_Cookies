@@ -51,6 +51,17 @@ public class Q1_MissingNum {
         int[] array = {5,3,7,2,1,9,6,0,8};
         System.out.println(missingNumber_Emre(array));
 
+
+        int [] nums1 = {3,0,1};
+        int [] nums2 = {0,1};
+        int [] nums3 = {9, 6, 4, 2, 3, 5, 7, 0, 1};
+
+
+        System.out.println(missingNumber_Maria(nums1));
+        System.out.println(missingNumber_Maria(nums2));
+        System.out.println(missingNumber_Maria(nums3));
+
+
     }
 
     static int Oleksii_MissingNum(int[] arr) {
@@ -64,6 +75,8 @@ public class Q1_MissingNum {
         return k;
 
     }
+
+
     
     public static int missingNumber_Zehra(int[] array) {
 
@@ -94,6 +107,25 @@ public class Q1_MissingNum {
             }
         }
         return array[array.length - 1] + 1;
+    }
+
+    public static int missingNumber_Maria(int[] nums) {
+        Arrays.sort(nums);
+
+        if (nums[nums.length - 1] != nums.length) {
+            return nums.length;
+        } else if (nums[0] != 0) {
+            return 0;
+        }
+
+        for (int i = 1; i < nums.length; i++) {
+            int expectedNum = nums[i - 1] + 1;
+            if (nums[i] != expectedNum) {
+                return expectedNum;
+            }
+        }
+
+        return -1;
     }
 
 }
