@@ -19,6 +19,7 @@ Optional additional task: Try to return original indices of the pair numbers.
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Q2_TwoSum {
 
@@ -27,6 +28,8 @@ public class Q2_TwoSum {
         int[] arr = {16, 3, 11, 5, 15};
         int target = 8;
 
+        // indices:
+        System.out.println(Arrays.toString(twoSum_Ivan(arr, target)));  // [1, 3] - not sorted
         System.out.println(Arrays.toString(TwoSum_Mahir(arr,target)));
         System.out.println(Arrays.toString(Oleksii_TwoSum(arr, target)));
 
@@ -34,8 +37,7 @@ public class Q2_TwoSum {
 
         System.out.println(Arrays.toString(twoSum_Emre(nums,8)));
 
-        int arr2[] = {16, 3, 11, 5, 15};
-        System.out.println(Arrays.toString(sum_Zehra(arr2, 8))); // [3, 5]
+        System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
     }
 
     public static int[] sum_Zehra(int[] arr, int target) {
@@ -119,6 +121,26 @@ public class Q2_TwoSum {
             }
         }
         return new int[]{};
+    }
+
+    public static int[] twoSum_Ivan(int[] nums, int target) {
+
+        int[] ans = new int[2];
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(nums[0], 0);
+
+        for(int i = 1; i < nums.length; i++) {
+            int val = target - nums[i];
+            if(map.containsKey(val)) {
+                ans[0] = map.get(val);
+                ans[1] = i;
+                return ans;
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        return ans;
     }
 
 }
