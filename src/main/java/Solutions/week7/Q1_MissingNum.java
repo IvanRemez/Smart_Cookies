@@ -37,6 +37,7 @@ public class Q1_MissingNum {
         int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
 
         //int[] nums = {0,1};
+        System.out.println(missingNum_Mahir(nums));
 
         System.out.println(Oleksii_MissingNum(nums));
     
@@ -47,9 +48,9 @@ public class Q1_MissingNum {
         System.out.println(missingNumber_Zehra(arr2)); // 2
         System.out.println(missingNumber_Zehra(arr3)); // 8
 
-        System.out.println("-----------------------------------------------------");
-        int[] array_Sefika ={1,3,5,2,0}; //n=5 , [0,5]
-        System.out.println(Q1_MissingNum.missingNumber_Sefika(array_Sefika)); //4
+
+        int[] array = {5,3,7,2,1,9,6,0,8};
+        System.out.println(missingNumber_Emre(array));
 
     }
 
@@ -84,22 +85,26 @@ public class Q1_MissingNum {
         }
     }
 
+    public static int missingNumber_Emre(int[] array) {
 
-    public static int missingNumber_Sefika(int[] array_Sefika){
-        int result= 0;
-        int n = array_Sefika.length;
-        int sum = ( n * (n+1)) / 2;
-        int sumOfArray = Arrays.stream(array_Sefika).sum();
-        result = sum - sumOfArray;
-        return result;
+        Arrays.sort(array);
 
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != i) {
+                return i;
+            }
+        }
+        return array[array.length - 1] + 1;
+    }
+    public static  int missingNum_Mahir(int[]nums){
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i!=nums[i]){
+                return i;
+            }
+        }
+        return nums.length;
     }
 
-
-
-
-
-
-
 }
-
