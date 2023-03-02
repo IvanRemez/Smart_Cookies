@@ -27,6 +27,7 @@ public class Q2_TwoSum {
         int[] arr = {16, 3, 11, 5, 15};
         int target = 8;
 
+        System.out.println(Arrays.toString(TwoSum_Mahir(arr,target)));
         System.out.println(Arrays.toString(Oleksii_TwoSum(arr, target)));
 
         Integer[] nums = {5, 2, 3, 4, 1};
@@ -103,6 +104,21 @@ public class Q2_TwoSum {
 
         }
         return new Integer[]{};
+    }
+    public static int[] TwoSum_Mahir(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        Arrays.sort(nums);
+        while (r > l) {
+            if (nums[r] + nums[l] == target) {
+                return new int[]{nums[l], nums[r]};
+            } else if (nums[r] + nums[l] < target)
+                l++;
+            else {
+                r--;
+            }
+        }
+        return new int[]{};
     }
 
 }
