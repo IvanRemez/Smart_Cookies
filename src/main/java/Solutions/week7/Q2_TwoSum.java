@@ -28,6 +28,7 @@ public class Q2_TwoSum {
 
         System.out.println(Arrays.toString(Oleksii_TwoSum(arr, target)));
 
+        System.out.println(Arrays.toString(twoSum_Malik(arr,target)));//3,5
     }
 
     static int[] Oleksii_TwoSum(int[] arr, int target) {
@@ -51,5 +52,19 @@ public class Q2_TwoSum {
 
         return new int[]{-1, -1};
     }
+    public static int[] twoSum_Malik(int[]ar,int target){
+        int []an=new int[2];
 
+        for (int i = 0; i < ar.length; i++) {
+            for (int j =i+1; j < ar.length; j++) {
+                if(ar[i]+ar[j]==target){
+                    an[0]+=ar[i];
+                    an[1]+=ar[j];
+                    break;
+                }
+            }
+        }
+
+        return an;
+    }
 }

@@ -47,6 +47,9 @@ public class Q1_MissingNum {
         System.out.println(missingNumber_Zehra(arr2)); // 2
         System.out.println(missingNumber_Zehra(arr3)); // 8
 
+        System.out.println(isMissing_Malik(arr));//2
+        System.out.println(isMissing_Malik(arr2));//2
+        System.out.println(isMissing_Malik(arr3));//8
     }
 
     static int Oleksii_MissingNum(int[] arr) {
@@ -79,4 +82,21 @@ public class Q1_MissingNum {
             return sumOfArray - result;
         }
     }
-}
+    public static int isMissing_Malik(int[] arr){
+
+        int ar=0;
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length; i++) {
+
+            if(ar==arr[i]){
+                ar++;
+            } else{
+                break;
+            }
+
+
+        }
+        return ar;
+    }}
+
+
