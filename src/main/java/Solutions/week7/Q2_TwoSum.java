@@ -34,8 +34,8 @@ public class Q2_TwoSum {
 
         System.out.println(Arrays.toString(twoSum_Emre(nums,8)));
 
-        int arr[] = {16, 3, 11, 5, 15};
-        System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
+        int arr2[] = {16, 3, 11, 5, 15};
+        System.out.println(Arrays.toString(sum_Zehra(arr2, 8))); // [3, 5]
     }
 
     public static int[] sum_Zehra(int[] arr, int target) {
