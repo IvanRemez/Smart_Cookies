@@ -38,6 +38,9 @@ public class Q2_TwoSum {
         System.out.println(Arrays.toString(twoSum_Emre(nums,8)));
 
         System.out.println(Arrays.toString(sum_Zehra(arr, 8))); // [3, 5]
+
+        System.out.println(Arrays.toString(twoSum_Malik(arr,8)));
+
     }
 
     public static int[] sum_Zehra(int[] arr, int target) {
@@ -142,5 +145,19 @@ public class Q2_TwoSum {
         }
         return ans;
     }
+    public static int[] twoSum_Malik(int[]ar,int target){
+        int []an=new int[2];
 
+        for (int i = 0; i < ar.length; i++) {
+            for (int j =i+1; j < ar.length; j++) {
+                if(ar[i]+ar[j]==target){
+                    an[0]+=ar[i];
+                    an[1]+=ar[j];
+                    break;
+                }
+            }
+        }
+
+        return an;
+    }
 }
