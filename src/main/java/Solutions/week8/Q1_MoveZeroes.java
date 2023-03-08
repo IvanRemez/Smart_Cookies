@@ -18,14 +18,35 @@ Follow up: Could you minimize the total number of operations done?
 Please, test your solution here: https://leetcode.com/problems/move-zeroes/
  */
 
+import java.util.Arrays;
+
 public class Q1_MoveZeroes {
 
     public static void main(String[] args) {
 
         // TESTS HERE
+        int[] nums = {0, 1, 0, 3, 12};
+        int[] nums2 = {0};
+
+        moveZerosToTheEnd_Zehra(nums); // [1, 3, 12, 0, 0]
+        moveZerosToTheEnd_Zehra(nums2); // [0]
 
     }
 
     // SOLUTIONS HERE
+    public static void moveZerosToTheEnd_Zehra(int[] array) {
 
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] !=0){
+                array[count++] = array[i];
+            }
+        }
+
+        while (count < array.length) {
+            array[count++] = 0;
+        }
+        System.out.println(Arrays.toString(array));
+    }
 }
