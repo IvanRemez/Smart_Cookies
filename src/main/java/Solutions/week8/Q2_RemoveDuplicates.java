@@ -24,42 +24,37 @@ Please, test your solution here: https://leetcode.com/problems/remove-duplicates
  */
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Q2_RemoveDuplicates {
 
     public static void main(String[] args) {
 
         // TESTS HERE
-        int [] i = new int[] {2, 6, 0, 0, 3};
-        int [] i2 = new int[] {0};
-        int [] i3 = new int[] {0,0,0,6, 2, 3, 5, 7, 0};
-        int [] i4 = new int[] {0, 0, 5, 6, 7, 77, 0, 0};
-        int [] i5 = new int[] {5, 3, 7, 0, 0 };
-        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i)));
-        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i2)));
-        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i3)));
-        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i4)));
-        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i5)));
+        Integer [] arr1 = new Integer[] {3, 3, 5, 5, 0, 1};
+        Integer [] arr2 = new Integer[] {0, 0, 9, 8, 5, 5, 6, 6, 7, 7};
+        Integer [] arr3 = new Integer[] {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+
+        setWithoutDuplicates_Sopo(arr1);
+        setWithoutDuplicates_Sopo(arr2);
+        setWithoutDuplicates_Sopo(arr3);
+
 
     }
 
     // SOLUTIONS HERE
-    private static int [] shiftZeroToRight_Sopo (int [] a){
-        if (a.length==1){
-            return a;
-        }
-        Arrays.sort(a); //Sorting Array
+    public static void setWithoutDuplicates_Sopo (Integer arr []){
 
-        int newArray [] = new int[a.length]; //Declaring new array with specific length
+        HashSet<Integer> setWithoutDuplicates = new HashSet<>(); //sorts and removes duplicates
 
-        int count = 0; //index count
-        for (int each:a){
-            if (each !=0){ //if doesn't equal to 0 add to count.
-                newArray [count] = each;
-                count++;
-            }
+        for (int i = 0; i < arr.length; i++) {
+            setWithoutDuplicates.add(arr[i]); //adding all elements in HashSet from arr
         }
-        return newArray;
+
+        int count =  setWithoutDuplicates.size(); //counting size of HashSet
+
+        System.out.println("K = "+count+ " nums = "+setWithoutDuplicates);
     }
+
 
 }
