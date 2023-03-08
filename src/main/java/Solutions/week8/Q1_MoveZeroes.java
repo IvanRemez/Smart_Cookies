@@ -18,14 +18,43 @@ Follow up: Could you minimize the total number of operations done?
 Please, test your solution here: https://leetcode.com/problems/move-zeroes/
  */
 
+import java.util.Arrays;
+
 public class Q1_MoveZeroes {
 
     public static void main(String[] args) {
 
         // TESTS HERE
+        int [] i = new int[] {2, 6, 0, 0, 3};
+        int [] i2 = new int[] {0};
+        int [] i3 = new int[] {0,0,0,6, 2, 3, 5, 7, 0};
+        int [] i4 = new int[] {0, 0, 5, 6, 7, 77, 0, 0};
+        int [] i5 = new int[] {5, 3, 7, 0, 0 };
+        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i)));
+        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i2)));
+        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i3)));
+        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i4)));
+        System.out.println(Arrays.toString(shiftZeroToRight_Sopo(i5)));
 
     }
 
     // SOLUTIONS HERE
+    private static int [] shiftZeroToRight_Sopo (int [] a){
+        if (a.length==1){
+            return a;
+        }
+        Arrays.sort(a); //Sorting Array
+
+        int newArray [] = new int[a.length]; //Declaring new array with specific length
+
+        int count = 0; //index count
+        for (int each:a){
+            if (each !=0){ //if doesn't equal to 0 add to count.
+                newArray [count] = each;
+                count++;
+            }
+        }
+        return newArray;
+    }
 
 }
