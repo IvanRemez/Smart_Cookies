@@ -23,13 +23,40 @@ nums is sorted in non-decreasing order.
 Please, test your solution here: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
  */
 
+import java.util.Arrays;
+
 public class Q2_RemoveDuplicates {
 
     public static void main(String[] args) {
 
         // TESTS HERE
+        int[] nums = {1, 1, 2};
+        int[] nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+
+        System.out.println(removeDuplicates_Zehra(nums)); // 2
+        System.out.println(removeDuplicates_Zehra(nums2)); // 5
+
+        removeDuplicates2_Zehra(nums); // [1, 2]
+        removeDuplicates2_Zehra(nums2); // [0, 1, 2, 3, 4]
 
     }
 
     // SOLUTIONS HERE
+
+    public static int removeDuplicates_Zehra(int[] nums) {
+
+        int j = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+
+    public static void removeDuplicates2_Zehra(int[] array) {
+        Arrays.stream(array).distinct().forEach(System.out::println);
+    }
 }
