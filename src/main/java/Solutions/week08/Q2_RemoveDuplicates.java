@@ -1,4 +1,4 @@
-package Solutions.week8;
+package Solutions.week08;
 
 /*
 Question-2 Remove Duplicates from Sorted Array

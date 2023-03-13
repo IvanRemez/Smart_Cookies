@@ -1,4 +1,4 @@
-package Solutions.week7;
+package Solutions.week07;
 
 /*
 Question-1 Missing Number

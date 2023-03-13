@@ -1,4 +1,4 @@
-package Solutions.week6;
+package Solutions.week06;
 
 /*
 Question - 2 Valid Palindrome

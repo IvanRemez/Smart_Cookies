@@ -1,4 +1,4 @@
-package Solutions.week5;
+package Solutions.week05;
 
 import java.util.Arrays;
 import java.util.Map;

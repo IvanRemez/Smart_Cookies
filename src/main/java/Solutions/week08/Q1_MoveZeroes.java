@@ -1,4 +1,4 @@
-package Solutions.week8;
+package Solutions.week08;
 
 /*
 Question-1 Move Zeroes

@@ -1,4 +1,4 @@
-package Solutions.week5;
+package Solutions.week05;
 
 import java.util.stream.IntStream;
 
