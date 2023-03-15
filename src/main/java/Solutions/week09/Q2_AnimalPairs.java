@@ -1,5 +1,10 @@
 package Solutions.week09;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class Q2_AnimalPairs {
 
     /*
@@ -24,8 +29,30 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
 
         // TEST HERE
 
+        String[] animals = {"dog", "dog","goat", "cat", "cat", "cat", "goat"};
+        String[] animal2 = {"dog"};
+        String[] animal3 = {"dog", "goat", "cat"};
+
+        System.out.println(AnimalToTheArk_Sopo(animals));
+        System.out.println(AnimalToTheArk_Sopo(animal2));
+        System.out.println(AnimalToTheArk_Sopo(animal3));
+
     }
 
     // SOLUTIONS HERE
+
+    public static Map<String, Integer> AnimalToTheArk_Sopo (String [] animal) {
+
+        Map<String, Integer> map = Arrays.stream(animal) //Converting String [] to Map
+                .collect(Collectors.toMap(s->s, s->1, Integer::sum));
+        Map<String, Integer> newEntry = new HashMap<>();
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue()>=2){
+                newEntry.put(entry.getKey(), 2); //set on fixed value
+            }
+        }
+        return newEntry;
+    }
+
 
 }

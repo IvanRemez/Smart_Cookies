@@ -26,8 +26,30 @@ Please, test your solution here: https://leetcode.com/problems/length-of-last-wo
 
         // TEST HERE
 
+        String str_Sopo = "Hello World";
+        String str2_Sopo = "fly me to the moon";
+        String str3_Sopo = "Hello";
+        System.out.println(LengthOfLastWord_Sopo(str_Sopo));
+        System.out.println(LengthOfLastWord_Sopo(str2_Sopo));
+        System.out.println(LengthOfLastWord_Sopo(str3_Sopo));
+
     }
 
     // SOLUTIONS HERE
+
+    public static int LengthOfLastWord_Sopo (String s){
+        if (s.length()<=1){
+            return 1;
+        }
+        if (!(s.contains(" "))){
+            return s.length();
+        }
+
+        s= s.trim();
+        int lastSpaceIndex = s.lastIndexOf(" ");//get the index of the last space
+        String result = s.substring(lastSpaceIndex);//get the all characters after last space index
+        int output = result.length()-1;
+        return output;
+    }
 
 }
