@@ -30,7 +30,7 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
 
         // TEST HERE
 
-        String[] animals = {"dog", "dog","goat", "cat", "cat", "cat", "goat"};
+        String[] animals = {"dog", "dog", "goat", "cat", "cat", "cat", "goat"};
         String[] animal2 = {"dog"};
         String[] animal3 = {"dog", "goat", "cat"};
         String[] s1 = {};
@@ -49,22 +49,27 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
         System.out.println(pairAnimals_Zehra(s4)); // {cat=2, dog=2}
         System.out.println(pairAnimals_Zehra(s5)); // {horse=2, rabbit=2, goat=2}
 
+        Oleksii_GetPairs(animals);
+        Oleksii_GetPairs(animal2);
+        Oleksii_GetPairs(animal3);
+
     }
 
     // SOLUTIONS HERE
 
-    public static Map<String, Integer> AnimalToTheArk_Sopo (String [] animal) {
+    public static Map<String, Integer> AnimalToTheArk_Sopo(String[] animal) {
 
         Map<String, Integer> map = Arrays.stream(animal) //Converting String [] to Map
-                .collect(Collectors.toMap(s->s, s->1, Integer::sum));
+                .collect(Collectors.toMap(s -> s, s -> 1, Integer::sum));
         Map<String, Integer> newEntry = new HashMap<>();
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue()>=2){
+            if (entry.getValue() >= 2) {
                 newEntry.put(entry.getKey(), 2); //set on fixed value
             }
         }
         return newEntry;
     }
+
 
     public static Map<String, Integer> pairAnimals_Zehra(String[] array) {
 
@@ -82,5 +87,25 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
 
         map.entrySet().removeIf(entry -> entry.getValue() == 1);
         return map;
+    }
+
+    public static void Oleksii_GetPairs(String[] str) {
+
+        Map<String, Integer> map = new HashMap<>();
+        for (String s : str) {
+            if (map.containsKey(s))
+                map.put(s, map.get(s).intValue() + 1);
+            else map.put(s, 1);
+        }
+        map.forEach((k, v) ->
+        {
+            if (v % 2 == 0) {
+                System.out.print("{" + k + "=" + v + "} ");
+            } else if (v % 2 == 1 && v != 0) {
+                System.out.print("{" + k + "," + --v + "} ");
+            }
+        });
+        System.out.println();
+
     }
 }
