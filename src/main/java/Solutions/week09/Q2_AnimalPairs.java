@@ -1,5 +1,6 @@
 package Solutions.week09;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,10 +33,21 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
         String[] animals = {"dog", "dog","goat", "cat", "cat", "cat", "goat"};
         String[] animal2 = {"dog"};
         String[] animal3 = {"dog", "goat", "cat"};
+        String[] s1 = {};
+        String[] s2 = {"goat"};
+        String[] s3 = {"dog", "goat", "dog"};
+        String[] s4 = {"dog", "cat", "dog", "cat", "beaver", "cat"};
+        String[] s5 = {"goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", "swan"};
 
         System.out.println(AnimalToTheArk_Sopo(animals));
         System.out.println(AnimalToTheArk_Sopo(animal2));
         System.out.println(AnimalToTheArk_Sopo(animal3));
+        System.out.println("------------------------------------");
+        System.out.println(pairAnimals_Zehra(s1)); // {}
+        System.out.println(pairAnimals_Zehra(s2)); // {}
+        System.out.println(pairAnimals_Zehra(s3)); // {dog=2}
+        System.out.println(pairAnimals_Zehra(s4)); // {cat=2, dog=2}
+        System.out.println(pairAnimals_Zehra(s5)); // {horse=2, rabbit=2, goat=2}
 
     }
 
@@ -54,5 +66,21 @@ Input: ["goat", "goat", "rabbit", "rabbit", "rabbit", "duck", "horse", "horse", 
         return newEntry;
     }
 
+    public static Map<String, Integer> pairAnimals_Zehra(String[] array) {
 
+        Map<String, Integer> map = new HashMap<>();
+        if (array.length == 0 || array.length == 1) {
+            return map;
+        }
+        for (String each : array) {
+            if (map.containsKey(each)) {
+                map.put(each, 2);
+            } else {
+                map.put(each, 1);
+            }
+        }
+
+        map.entrySet().removeIf(entry -> entry.getValue() == 1);
+        return map;
+    }
 }
