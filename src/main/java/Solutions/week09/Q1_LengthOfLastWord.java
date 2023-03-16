@@ -29,9 +29,7 @@ Please, test your solution here: https://leetcode.com/problems/length-of-last-wo
         String str_Sopo = "Hello World";
         String str2_Sopo = "fly me to the moon";
         String str3_Sopo = "Hello";
-        System.out.println(LengthOfLastWord_Sopo(str_Sopo));
-        System.out.println(LengthOfLastWord_Sopo(str2_Sopo));
-        System.out.println(LengthOfLastWord_Sopo(str3_Sopo));
+
 
     }
 
@@ -52,4 +50,9 @@ Please, test your solution here: https://leetcode.com/problems/length-of-last-wo
         return output;
     }
 
+
+    public static int Oleksii_LenghtOfTheLastWord(String word){
+        String[] arr = word.split(" ");
+        return arr[arr.length-1].length();
+    }
 }
