@@ -33,6 +33,22 @@ Please, test your solution here: https://leetcode.com/problems/length-of-last-wo
         System.out.println(LengthOfLastWord_Sopo(str2_Sopo));
         System.out.println(LengthOfLastWord_Sopo(str3_Sopo));
 
+        System.out.println("-----------------------------------------");
+
+        String str = "Hello World";
+        String str2 = " fly me to the moon ";
+        String str3 = "luffy is still joyboy";
+
+        System.out.println(lengthOfLastWord_Zehra(str)); // 5
+        System.out.println(lengthOfLastWord_Zehra(str2)); // 4
+        System.out.println(lengthOfLastWord_Zehra(str3)); // 6
+        System.out.println(lengthOfLastWord2_Zehra(str));
+        System.out.println(lengthOfLastWord2_Zehra(str2));
+        System.out.println(lengthOfLastWord2_Zehra(str3));
+        System.out.println(lengthOfLastWord3_Zehra(str));
+        System.out.println(lengthOfLastWord3_Zehra(str2));
+        System.out.println(lengthOfLastWord3_Zehra(str3));
+
     }
 
     // SOLUTIONS HERE
@@ -50,6 +66,42 @@ Please, test your solution here: https://leetcode.com/problems/length-of-last-wo
         String result = s.substring(lastSpaceIndex);//get the all characters after last space index
         int output = result.length()-1;
         return output;
+    }
+    public static int lengthOfLastWord_Zehra(String s) {
+
+        String[] str = s.split(" ");
+        String result = str[str.length - 1];
+        return result.length();
+    }
+
+    public static int lengthOfLastWord2_Zehra(String s) {
+
+        if (s.length() == 1) {
+            return 1;
+        }
+
+        String result = s.trim();
+        result = result.substring(result.lastIndexOf(" ") + 1);
+        return result.length();
+    }
+    public static int lengthOfLastWord3_Zehra(String s) {
+
+        int l = 0;
+        int r = s.length() - 1;
+
+        while (r >= 0 && s.charAt(r) == ' ') {
+            r--;
+        }
+
+        if (r == 0) {
+            return 1;
+        }
+
+        while (r >= 0 && s.charAt(r) != ' ') {
+            r--;
+            l++;
+        }
+        return l;
     }
 
 }
