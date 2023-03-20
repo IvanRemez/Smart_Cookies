@@ -52,10 +52,31 @@ public class ExcelSheetColumnNumber {
     title = "BCM";
     System.out.println("for title: " + title + ", result: " + dummySolution(title)); //1443
     //todo call your method from here with sout like above line
+
+    String str = "A";
+    String str2 = "AB";
+    String str3 = "ZY";
+
+    System.out.println(titleToNumber_Zehra(str)); // 26^0 + 0 = 1
+    System.out.println(titleToNumber_Zehra(str2)); // 26^1 + 2 = 28
+    System.out.println(titleToNumber_Zehra(str3)); // 26^2 + 25 = 701
   }
 
   static int dummySolution(String title) {
     //just for method blueprint
     return 0;
+  }
+  public static int titleToNumber_Zehra(String columnTitle) {
+    // there will be a polynomial like this 26^0.x + 26^1.x + ...+26^(n-1).x, n = length
+    // x will be (ch - 64) , ch current character from ASCII table since 'A' = 65 as a first char.
+
+    int result = 0;
+
+    for (char each : columnTitle.toCharArray()) {
+//            int ch = each - 'A' + 1; // since 'A' is the first, others will take accordingly
+      int ch = each - 64;
+      result = result * 26 + ch;
+    }
+    return result;
   }
 }
