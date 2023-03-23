@@ -39,6 +39,8 @@ public class BestTimeToBuyAndSellStock {
 
         System.out.println(maxProfit_Zehra(price)); // 5
         System.out.println(maxProfit_Zehra(price2)); // 0
+        System.out.println(maxProfit_Maria(price));
+        System.out.println(maxProfit_Maria(price2));
     }
 
     static int dummySolution(int[] prices) {
@@ -58,5 +60,21 @@ public class BestTimeToBuyAndSellStock {
             maxProfit = Math.max(maxProfit, prices[i] - minPrice);
         }
         return maxProfit;
+    }
+
+    public static int maxProfit_Maria(int[] prices){
+        int profit = 0;
+
+        for (int i = 0; i < prices.length -1; i++) {
+
+            for (int j = 1; j < prices.length; j++) {
+                int currentProfit = prices[j] - prices[i];
+
+                if(currentProfit > profit){
+                    profit = currentProfit;
+                }
+            }
+        }
+        return profit;
     }
 }
