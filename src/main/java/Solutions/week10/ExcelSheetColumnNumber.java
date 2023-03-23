@@ -61,6 +61,10 @@ public class ExcelSheetColumnNumber {
         System.out.println(titleToNumber_Zehra(str)); // 26^0 + 0 = 1
         System.out.println(titleToNumber_Zehra(str2)); // 26^1 + 2 = 28
         System.out.println(titleToNumber_Zehra(str3)); // 26^2 + 25 = 701
+
+        System.out.println(titleToNumber_Ivan(str));
+        System.out.println(titleToNumber_Ivan(str2));
+        System.out.println(titleToNumber_Ivan(str3));
     }
 
     static int dummySolution(String title) {
@@ -90,5 +94,16 @@ public class ExcelSheetColumnNumber {
             sum = ((sum*26) + ((int)columnTitle.charAt(i) - 64));
         }
         return sum;
+    }
+
+    public static int titleToNumber_Ivan(String str) {
+
+        int num = str.length();
+        int result = 0;
+
+        for (int i = num - 1; i >= 0; i--) {
+            result += Math.pow(26, num - i - 1) * (str.charAt(i) - 64);
+        }
+        return result;
     }
 }

@@ -50,7 +50,7 @@ public class BestTimeToBuyAndSellStock {
 
     public static int maxProfit_Zehra(int[] prices) {
         // min buy, max sell and buy must be first
-        // simple logic: find min value for max profit, substract and compare
+        // simple logic: find min value for max profit, subtract and compare
         int maxProfit = 0;
         int minPrice = prices[0];
 
