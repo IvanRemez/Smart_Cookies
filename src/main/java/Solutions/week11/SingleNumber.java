@@ -1,6 +1,7 @@
 package Solutions.week11;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class SingleNumber {
 
@@ -21,6 +22,9 @@ public class SingleNumber {
     System.out.println("input nums: " + Arrays.toString(nums));
     System.out.println("result: " + singleNumber_Maria(nums)); //todo instead of dummy method, call your method from here
     System.out.println("****************************");
+
+    int[] arr ={2,2,3,3,4,5,5,6,6};
+    System.out.println(findSingleNumber_Sefika(arr));
   }
 
   static int dummySolution(int[] nums) {
@@ -34,5 +38,17 @@ public class SingleNumber {
       result ^=i;
     }
     return result;
+  }
+
+  public static int findSingleNumber_Sefika(int[] arr) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int i = 0; i < arr.length; i++) {
+      if (set.contains(arr[i])) {
+        set.remove(arr[i]);
+      } else {
+        set.add(arr[i]);
+      }
+    }
+    return set.stream().findAny().get();
   }
 }
