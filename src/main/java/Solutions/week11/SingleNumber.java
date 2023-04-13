@@ -26,6 +26,9 @@ public class SingleNumber {
         System.out.println("result: " + singleNumber_Maria(nums)); //todo instead of dummy method, call your method from here
         System.out.println("result: " + singleNumber_Zehra(nums));
         System.out.println("****************************");
+        
+        int[] arr ={2,2,3,3,4,5,5,6,6};
+        System.out.println(findSingleNumber_Sefika(arr));
 
         int[] nums2 = {4, 1, 2, 1, 2};
         int[] nums3 = {1};
@@ -47,6 +50,18 @@ public class SingleNumber {
         }
         return result;
     }
+    
+    public static int findSingleNumber_Sefika(int[] arr) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int i = 0; i < arr.length; i++) {
+      if (set.contains(arr[i])) {
+        set.remove(arr[i]);
+      } else {
+        set.add(arr[i]);
+      }
+    }
+    return set.stream().findAny().get();
+    }
 
     public static int singleNumber_Zehra(int[] nums) {
 
@@ -59,4 +74,5 @@ public class SingleNumber {
         }
         return set.stream().findAny().orElseThrow();
     }
+
 }
