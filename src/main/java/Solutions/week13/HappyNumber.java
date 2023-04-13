@@ -30,14 +30,35 @@ https://leetcode.com/problems/happy-number/
 For more explanation about happy number : https://en.wikipedia.org/wiki/Happy_number
  */
 
+import java.util.HashSet;
+
 public class HappyNumber {
 
     public static void main(String[] args) {
 
         // TEST HERE
+        System.out.println(isHappy_Zehra(2)); // false
+        System.out.println(isHappy_Zehra(19)); // true
 
     }
 
     // SOLUTIONS HERE
+    public static boolean isHappy_Zehra(int n) {
+        // first squares and sum of them while n > 0, if the result = 1, then true
+
+        HashSet<Integer> set = new HashSet<>();
+
+        while (!set.contains(n)) {
+            set.add(n);
+            int sumOfSquares = 0;
+
+            while (n > 0) {
+                sumOfSquares += Math.pow(n % 10, 2);
+                n = n / 10;
+            }
+            n = sumOfSquares;
+        }
+        return n == 1 ? true : false;
+    }
 
 }
