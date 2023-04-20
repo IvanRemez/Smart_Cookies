@@ -23,6 +23,19 @@ public class PalindromeLinkedList {
 
         // TEST HERE
 
+        LinkedListApp list = new LinkedListApp();
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        list.add(1);
+
+        System.out.println(list.isPalindrome(list.head)); // true
+
+        LinkedListApp list2 = new LinkedListApp();
+        list2.add(1);
+        list2.add(2);
+        System.out.println(list2.isPalindrome(list2.head)); // false
+
     }
 
     // SOLUTIONS HERE
