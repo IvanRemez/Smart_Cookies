@@ -30,9 +30,31 @@ public class ClimbingStairs {
     public static void main(String[] args) {
 
         // TEST HERE
+        System.out.println(climbStairs_Z(2)); // 2
+        System.out.println(climbStairs_Z(3)); // 3
+        System.out.println(climbStairs_Z(4)); // 5
+        System.out.println(climbStairs_Z(5)); // 8
 
     }
 
     // SOLUTIONS HERE
+    public static int climbStairs_Z(int n) {
 
+        if (n == 1) {
+            return 1;
+        }
+
+        if (n == 2) {
+            return 2;
+        }
+
+        int[] a = new int[n];
+        a[0] = 1;
+        a[1] = 2;
+
+        for (int i = 2; i < n; i++) {
+            a[i] = a[i - 1] + a[i - 2];
+        }
+        return a[n - 1];
+    }
 }
