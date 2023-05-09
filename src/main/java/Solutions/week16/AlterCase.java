@@ -23,8 +23,27 @@ public class AlterCase {
 
         // TEST HERE
 
+        String input1 = "We are the world";
+        String input2 = "this is some code";
+
+        System.out.println(alterCase_Maria(input1));
+        System.out.println(alterCase_Maria(input2));
+
     }
 
     // SOLUTIONS HERE
+    public static String alterCase_Maria(String str) {
+
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i % 2 == 0) {
+                result += str.substring(i, i + 1).toUpperCase();
+            } else {
+                result += str.substring(i, i + 1);
+            }
+        }
+        return result;
+
+    }
 
 }
